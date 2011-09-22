@@ -1,0 +1,53 @@
+!!! 5
+%html{html_attrs('fr-fr')}
+  %head
+    %meta{:charset => 'utf-8'}
+    %title= "Nicolas Cavigneaux - #{@item[:title]}"
+    %link{"rel" => "stylesheet", "type" => "text/css", "href" => "/stylesheets/reset.css", "media" => "screen"}
+    %link{"rel" => "stylesheet", "type" => "text/css", "href" => "/stylesheets/main.css", "media" => "screen"}
+    %script{"src" => "/javascripts/mootools.js", "type" => "text/javascript", "charset" => "utf-8"}
+    %script{"src" => "/javascripts/mootools-more.js", "type" => "text/javascript", "charset" => "utf-8"}
+    %script{"src" => "/javascripts/application.js", "type" => "text/javascript", "charset" => "utf-8"}
+
+  %body
+    .wrapper
+      %header
+        %h1
+          = link_to "Nicolas Cavigneaux", "/"
+        %nav
+          %ul
+            %a{:href => "/"}
+              %li.first À propos
+            %a{:href => "/news/"}
+              %li Actus
+            %a{:href => "/projets/"}
+              %li Projets
+            %a{:href => "/parcours-professionnel/"}
+              %li.last Parcours
+
+      #main
+        = yield
+      %nav#sidebar
+        %ul.social
+          %li.blog
+            %a{"href" => "http://www.bounga.org"} Blog
+          %li.bitbucket
+            %a{"href" => "http://www.bitbucket.org/Bounga"} BitBucket
+          %li.twitter
+            %a{"href" => "http://twitter.com/Bounga"} Twitter
+          %li.viadeo
+            %a{"href" => "http://www.viadeo.com/fr/profile/nicolas.cavigneaux"} Viadeo
+          %li.linkedin
+            %a{"href" => "http://www.linkedin.com/in/cavigneaux"} LinkedIn
+          %li.flickr
+            %a{"href" => "http://www.flickr.com/photos/bounga/"} Flickr
+          %li.friendfeed
+            %a{"href" => "http://friendfeed.com/bounga"} FriendFeed
+
+      %footer
+        %p= "&copy; #{Date.today.year} Nicolas Cavigneaux"
+        %p
+          %a{:href => "http://workingwithrails.com/recommendation/new/person/6667-nicolas-cavigneaux", :title => "Recommend me!"}
+            %img{"src" => "/images/socials/recommend_me.jpg"}
+          %a{:href => "http://contributors.rubyonrails.org/names_mapping", :title => "Core contributor"}
+            %img{"src" => "/images/socials/rails-core-contributor.gif"}
