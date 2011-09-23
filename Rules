@@ -19,6 +19,9 @@ end
 compile '/javascripts/*/' do
 end
 
+compile '/assets/*/' do
+end
+
 compile '/stylesheets/*/' do
   filter :sass, :syntax => :scss
   filter :rainpress
@@ -54,6 +57,10 @@ end
 
 route '/javascripts/*/' do
   item.identifier.chop + '.js'
+end
+
+route '/assets/*/' do
+  item.identifier.chop + '.' + item[:extension]
 end
 
 route 'sitemap' do
