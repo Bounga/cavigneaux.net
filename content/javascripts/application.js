@@ -1,5 +1,5 @@
 (function() {
-  var Twitter, setActiveLanguage, setActiveMenu, showPosts, showTweets;
+  var Twitter, setActiveLanguage, setActiveMenu, showPosts, showTweets, wrapStyledImages;
   var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
   Twitter = new Class({
     Implements: [Options, Events],
@@ -108,10 +108,27 @@
     pref = [locale, variant].join("-");
     return Locale.use(pref);
   };
+  wrapStyledImages = function() {
+    return $$("img.styled").each(function(item) {
+      new Element("span.image-wrap", {
+        styles: {
+          position: "relative",
+          display: "inline-block",
+          background: "url('" + item.src + "') no-repeat center center",
+          width: "" + item.width + "px",
+          height: "" + item.height + "px"
+        }
+      }).wraps(item);
+      return item.setStyle("opacity", "0");
+    });
+  };
   window.addEvent('domready', function() {
     setActiveLanguage();
     setActiveMenu();
     showTweets();
     return showPosts();
+  });
+  window.addEvent("load", function() {
+    return wrapStyledImages();
   });
 }).call(this);

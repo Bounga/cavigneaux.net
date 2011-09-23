@@ -69,9 +69,25 @@ setActiveLanguage = ->
   variant = language[-2..].toUpperCase()
   pref = [locale, variant].join("-")
   Locale.use(pref)
+  
+wrapStyledImages = ->
+  $$("img.styled").each (item) ->
+    new Element("span.image-wrap", {
+      styles:
+        position: "relative"
+        display: "inline-block"
+        background: "url('#{item.src}') no-repeat center center"
+        width: "#{item.width}px"
+        height: "#{item.height}px"
+    }).wraps(item)
+
+    item.setStyle "opacity", "0"
 
 window.addEvent 'domready', ->
     setActiveLanguage()
     setActiveMenu()
     showTweets()
     showPosts()
+
+window.addEvent "load", ->
+  wrapStyledImages()
