@@ -1,5 +1,5 @@
 (function() {
-  var Twitter, setActiveLanguage, setActiveMenu, showPosts, showTweets, wrapStyledImages;
+  var Twitter, fuckIE, setActiveLanguage, setActiveMenu, showPosts, showTweets, wrapStyledImages;
   var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
   Twitter = new Class({
     Implements: [Options, Events],
@@ -122,11 +122,21 @@
       return item.setStyle("opacity", "0");
     });
   };
+  fuckIE = function() {
+    if (Browser.ie) {
+      if (Locale.getCurrent().name === "fr-FR") {
+        return alert("Je n'ai vraiment aucun plaisir à supporter IE pour mes sites personnels. Vous devriez sérieusement penser à installer Firefox, Safari, Chrome ou Opera qui sont de VRAIS navigateurs. IE est une blague qui ne supporte aucune des fonctionnalités modernes utilisées sur le Web.");
+      } else {
+        return alert("I really don't care about suppporting IE for my personnal websites. You should really considerer switch to Firefox, Safari, Chrome or Opera which are REAL browsers. IE is a joke which doesn't support modern functionnalities.");
+      }
+    }
+  };
   window.addEvent('domready', function() {
     setActiveLanguage();
     setActiveMenu();
     showTweets();
-    return showPosts();
+    showPosts();
+    return fuckIE();
   });
   window.addEvent("load", function() {
     return wrapStyledImages();
