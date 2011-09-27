@@ -188,7 +188,12 @@ body {
         &.home {background: transparent url(/images/icons/free_for_job.png) no-repeat 5% 0}
         &.news {background: transparent url(/images/icons/news.png) no-repeat 5% 0}
         &.projects {background: transparent url(/images/icons/projects.png) no-repeat 5% 0}
-        &.experience {background: transparent url(/images/icons/experience.png) no-repeat 44% 11px}
+        &.experience {
+          background: transparent url(/images/icons/experience.png) no-repeat 44% 11px;
+          &.en {
+            background: transparent url(/images/icons/experience.png) no-repeat 50% 11px;
+          }
+        }
       }
       
       h2 {
@@ -332,6 +337,10 @@ body {
   
   .left {
     float: left;
+  }
+  
+  .right {
+    float: right;
   }
   
   .clear {
