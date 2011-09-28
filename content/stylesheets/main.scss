@@ -1,12 +1,15 @@
 $bgcolor: #181613;
 
+@import url(http://fonts.googleapis.com/css?family=Forum);
+@import url(http://fonts.googleapis.com/css?family=IM+Fell+Great+Primer+SC);
+
 * {
   margin: 0;
   padding: 0;
-  font-family: Georgia, Palatino, Times, 'Times New Roman', sans-serif;
 }
 
 body {
+  font-family: 'Forum', cursive;
   background: $bgcolor url(/images/body.png) repeat-x;
   
   .wrapper {
@@ -34,8 +37,17 @@ body {
     }
     
     header {
-      h1 a:hover {
-        text-decoration: none;
+      .flag {
+        position: absolute;
+        right: 0;
+      }
+      
+      h1 {
+        font-family: "IM Fell Great Primer SC", cursive;
+        
+        a:hover {
+          text-decoration: none;
+        }
       }
       
       nav ul {
@@ -197,6 +209,7 @@ body {
       }
       
       h2 {
+        padding: 0.3em 0;
         font-size: 18px;
         font-weight: 600;
         margin-bottom: 1em;
