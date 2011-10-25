@@ -90,19 +90,7 @@ fuckIE = ->
     else
       alert("I really don't care about suppporting IE for my personnal websites. You should really considerer switch to Firefox, Safari, Chrome or Opera which are REAL browsers. IE is a joke which doesn't support modern functionnalities.")
       
-analytics = ->
-  _gaq = _gaq || []
-  _gaq.push(['_setAccount', 'UA-915769-1'])
-  _gaq.push(['_trackPageview'])
-
-  ga = document.createElement('script')
-  ga.type = 'text/javascript'
-  ga.async = true
-  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-  s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-
 window.addEvent 'domready', ->
-    analytics()
     setActiveLanguage()
     setActiveMenu()
     showTweets()
