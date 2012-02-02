@@ -4,3 +4,4 @@ syntax: glob
 public/*
 tmp/*
 .sass-cache/*
+vendor/bundle
