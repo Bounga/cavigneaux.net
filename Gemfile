@@ -8,6 +8,7 @@ gem "w3c_validators"
 gem "builder"
 gem "rack"
 gem "mime-types"
+gem "systemu"
 
 group :development do
   gem "guard"
