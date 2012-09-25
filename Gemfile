@@ -6,6 +6,8 @@ gem "rainpress"
 gem "rubypants"
 gem "w3c_validators"
 gem "builder"
+gem "rack"
+gem "mime-types"
 
 group :development do
   gem "guard"
@@ -13,6 +15,6 @@ group :development do
   gem "guard-nanoc"
   gem "guard-livereload"
   gem "guard-coffeescript"
-  gem "rb-fsevent"
+  #gem "rb-fsevent"
   gem "rake"
 end
