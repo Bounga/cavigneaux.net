@@ -86,9 +86,9 @@ wrapStyledImages = ->
 fuckIE = ->
   if Browser.ie
     if Locale.getCurrent().name is "fr-FR"
-      alert("Je n'ai vraiment aucun plaisir à supporter IE pour mes sites personnels. Vous devriez sérieusement penser à installer Firefox, Safari, Chrome ou Opera qui sont de VRAIS navigateurs. IE est une blague qui ne supporte aucune des fonctionnalités modernes utilisées sur le Web.")
+      alert("Je n'ai vraiment aucun plaisir à supporter IE pour mes sites personnels. Je ne le fais donc pas. Pensez à installer une alternatives telle que Firefox, Safari, Chrome ou Opera.")
     else
-      alert("I really don't care about suppporting IE for my personnal websites. You should really considerer switch to Firefox, Safari, Chrome or Opera which are REAL browsers. IE is a joke which doesn't support modern functionnalities.")
+      alert("I really don't care about suppporting IE for my personnal websites. You should really consider a switch to Firefox, Safari, Chrome or Opera.")
       
 window.addEvent 'domready', ->
     setActiveLanguage()
