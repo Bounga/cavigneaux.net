@@ -58,48 +58,48 @@ body {
         height: 75px;
         width: 450px;
 
-        a, a:hover {
-          font-size: 18px;
-          font-weight: 700;
-          text-shadow: 2px 2px 2px #5f0300;
-          text-decoration: none;
-          
-          li {
-            float: left;
-            height: 46px;
-            line-height: 46px;
-            width: 110px;
+        li {
+          float: left;
+          height: 46px;
+          line-height: 46px;
+          width: 110px;
+          border: 1px solid #650200;
+          border-right: 1px solid #900300;
+          text-align: center;
+          background: url(/images/nav-default.png) repeat-x;
+
+          &:hover {
+            background: url(/images/nav-hover.png) repeat-x;
+          }
+
+          &.first {
+            -webkit-border-top-left-radius: 10px;
+            -webkit-border-bottom-left-radius: 10px;
+            -moz-border-radius-topleft: 10px;
+            -moz-border-radius-bottomleft: 10px;
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+          }
+
+          &.last {
+            -webkit-border-top-right-radius: 10px;
+            -webkit-border-bottom-right-radius: 10px;
+            -moz-border-radius-topright: 10px;
+            -moz-border-radius-bottomright: 10px;
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
             border: 1px solid #650200;
-            border-right: 1px solid #900300;
-            text-align: center;
-            background: url(/images/nav-default.png) repeat-x;
+          }
 
-            &:hover {
-              background: url(/images/nav-hover.png) repeat-x;
-            }
+          &.active {
+            background: url(/images/nav-active.png) repeat-x;
+          }
 
-            &.first {
-              -webkit-border-top-left-radius: 10px;
-              -webkit-border-bottom-left-radius: 10px;
-              -moz-border-radius-topleft: 10px;
-              -moz-border-radius-bottomleft: 10px;
-              border-top-left-radius: 10px;
-              border-bottom-left-radius: 10px;
-            }
-
-            &.last {
-              -webkit-border-top-right-radius: 10px;
-              -webkit-border-bottom-right-radius: 10px;
-              -moz-border-radius-topright: 10px;
-              -moz-border-radius-bottomright: 10px;
-              border-top-right-radius: 10px;
-              border-bottom-right-radius: 10px;
-              border: 1px solid #650200;
-            }
-
-            &.active {
-              background: url(/images/nav-active.png) repeat-x;
-            }
+          a, a:hover {
+            font-size: 18px;
+            font-weight: 700;
+            text-shadow: 2px 2px 2px #5f0300;
+            text-decoration: none;
           }
         }
       }

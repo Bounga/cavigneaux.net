@@ -26,20 +26,20 @@
   %body
     .wrapper
       %header
-        %a{:href => "/en", :title => "English version", :class => "flag"}
-          %img{:src => "/images/flag_us.png"}
+        %a{:href => "/en/", :title => "English version", :class => "flag"}
+          %img{:src => "/images/flag_us.png", :alt => "English version"}
         %h1
           = link_to "Nicolas Cavigneaux", "/"
         %nav
           %ul
-            %a{:href => "/"}
-              %li.first À propos
-            %a{:href => "/news/"}
-              %li Actus
-            %a{:href => "/projets/"}
-              %li Projets
-            %a{:href => "/parcours-professionnel/"}
-              %li.last Parcours
+            %li.first
+              %a{:href => "/"} À propos
+            %li
+              %a{:href => "/news/"} Actus
+            %li
+              %a{:href => "/projets/"} Projets
+            %li.last
+              %a{:href => "/parcours-professionnel/"} Parcours
 
       #main
         = yield
@@ -64,6 +64,6 @@
         %p= "&copy; #{Date.today.year} Nicolas Cavigneaux"
         %p
           %a{:href => "http://workingwithrails.com/recommendation/new/person/6667-nicolas-cavigneaux", :title => "Recommend me!"}
-            %img{"src" => "/images/socials/recommend_me.jpg"}
+            %img{"src" => "/images/socials/recommend_me.jpg", "alt" => "Recommander moi sur WWR"}
           %a{:href => "http://contributors.rubyonrails.org/names_mapping", :title => "Core contributor"}
-            %img{"src" => "/images/socials/rails-core-contributor.gif"}
+            %img{"src" => "/images/socials/rails-core-contributor.gif", "alt" => "Rails Core Contributor"}
