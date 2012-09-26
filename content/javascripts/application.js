@@ -1,6 +1,6 @@
 (function() {
   var Twitter, fuckIE, setActiveLanguage, setActiveMenu, showPosts, showTweets, wrapStyledImages;
-  var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
+
   Twitter = new Class({
     Implements: [Options, Events],
     options: {
@@ -17,6 +17,7 @@
       return text.replace(/(https?:\/\/\S+)/gi, '<a href="$1">$1</a>').replace(/(^|\s)@(\w+)/g, '$1<a href="http://twitter.com/$2">@$2</a>').replace(/(^|\s)#(\w+)/g, '$1#<a href="http://search.twitter.com/search?q=%23$2">$2</a>');
     },
     retrieve: function() {
+      var _this = this;
       return new Request.JSONP({
         url: "http://twitter.com/statuses/user_timeline/" + this.username + ".json",
         data: {
@@ -24,28 +25,30 @@
           since_id: this.options.sinceID
         },
         onRequest: this.fireEvent('request'),
-        onComplete: __bind(function(data) {
+        onComplete: function(data) {
           var item, _i, _len;
-          if (this.options.link) {
+          if (_this.options.link) {
             for (_i = 0, _len = data.length; _i < _len; _i++) {
               item = data[_i];
-              item.text = this.linkify(item.text);
+              item.text = _this.linkify(item.text);
             }
           }
-          return this.fireEvent("complete", [data, data[0].user]);
-        }, this)
+          return _this.fireEvent("complete", [data, data[0].user]);
+        }
       }).send();
     }
   });
+
   setActiveMenu = function() {
     var items;
-    items = $$("header nav ul a");
+    items = $$("header nav ul li a");
     return items.each(function(item) {
       if (item.pathname === document.location.pathname) {
-        return item.getFirst("li").addClass("active");
+        return item.getParent("li").addClass("active");
       }
     });
   };
+
   showTweets = function() {
     var tweets_container, twitter;
     tweets_container = $("twitter");
@@ -76,6 +79,7 @@
       }
     }
   };
+
   showPosts = function() {
     var posts_container;
     posts_container = $("blog");
@@ -100,6 +104,7 @@
       }).send();
     }
   };
+
   setActiveLanguage = function() {
     var language, locale, pref, variant;
     language = Browser.ie ? navigator.userLanguage : navigator.language;
@@ -108,6 +113,7 @@
     pref = [locale, variant].join("-");
     return Locale.use(pref);
   };
+
   wrapStyledImages = function() {
     return $$("img.styled").each(function(item) {
       new Element("span.image-wrap", {
@@ -122,15 +128,18 @@
       return item.setStyle("opacity", "0");
     });
   };
+
   fuckIE = function() {
-    if (Browser.ie) {
+    if (Browser.ie && Cookie.read('already_alerted_about_ie') === null) {
+      Cookie.write('already_alerted_about_ie', true);
       if (Locale.getCurrent().name === "fr-FR") {
-        return alert("Je n'ai vraiment aucun plaisir à supporter IE pour mes sites personnels. Vous devriez sérieusement penser à installer Firefox, Safari, Chrome ou Opera qui sont de VRAIS navigateurs. IE est une blague qui ne supporte aucune des fonctionnalités modernes utilisées sur le Web.");
+        return alert("Je n'ai vraiment aucun plaisir à supporter IE pour mes sites personnels. Je ne le fais donc pas. Pensez à installer une alternatives telle que Firefox, Safari, Chrome ou Opera.");
       } else {
-        return alert("I really don't care about suppporting IE for my personnal websites. You should really considerer switch to Firefox, Safari, Chrome or Opera which are REAL browsers. IE is a joke which doesn't support modern functionnalities.");
+        return alert("I really don't care about suppporting IE for my personnal websites. You should really consider a switch to Firefox, Safari, Chrome or Opera.");
       }
     }
   };
+
   window.addEvent('domready', function() {
     setActiveLanguage();
     setActiveMenu();
@@ -138,7 +147,9 @@
     showPosts();
     return fuckIE();
   });
+
   window.addEvent("load", function() {
     return wrapStyledImages();
   });
+
 }).call(this);

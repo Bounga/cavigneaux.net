@@ -29,13 +29,13 @@ Twitter = new Class
     }).send()
 
 setActiveMenu = ->
-  items = $$("header nav ul a")
+  items = $$("header nav ul li a")
   items.each (item) ->
-    item.getFirst("li").addClass("active") if item.pathname is document.location.pathname 
+    item.getParent("li").addClass("active") if item.pathname is document.location.pathname
 
 showTweets = ->
   tweets_container = $("twitter")
-  
+
   if tweets_container?
     twitter = new Twitter 'Bounga', {
       onComplete: (tweets, user) ->
@@ -52,7 +52,7 @@ showTweets = ->
 
 showPosts = ->
   posts_container = $("blog")
-  
+
   if posts_container?
     new Request.JSONP({
       url: "http://friendfeed.com/api/feed/user?nickname=bounga&service=blog&num=3&format=json"
@@ -62,14 +62,14 @@ showPosts = ->
           date = Date.parse(item.published).format("%x")
           new Element('div', {html: "<img src=\"/images/icons/feed.png\" alt=\"Blog\" /> <strong>#{item.service.name}</strong>#{item.title}<p><a href=\"#{item.link}\">Read more</a></p><span>#{date} by #{item.user.name}</span>", 'class': 'item clear'}).inject('blog')
     }).send()
-    
+
 setActiveLanguage = ->
   language = if Browser.ie then navigator.userLanguage else navigator.language
   locale = language[0...2]
   variant = language[-2..].toUpperCase()
   pref = [locale, variant].join("-")
   Locale.use(pref)
-  
+
 wrapStyledImages = ->
   $$("img.styled").each (item) ->
     new Element("span.image-wrap", {
@@ -82,14 +82,15 @@ wrapStyledImages = ->
     }).wraps(item)
 
     item.setStyle "opacity", "0"
-    
+
 fuckIE = ->
-  if Browser.ie
+  if Browser.ie and Cookie.read('already_alerted_about_ie') is null
+    Cookie.write 'already_alerted_about_ie', true
     if Locale.getCurrent().name is "fr-FR"
       alert("Je n'ai vraiment aucun plaisir à supporter IE pour mes sites personnels. Je ne le fais donc pas. Pensez à installer une alternatives telle que Firefox, Safari, Chrome ou Opera.")
     else
       alert("I really don't care about suppporting IE for my personnal websites. You should really consider a switch to Firefox, Safari, Chrome or Opera.")
-      
+
 window.addEvent 'domready', ->
     setActiveLanguage()
     setActiveMenu()
