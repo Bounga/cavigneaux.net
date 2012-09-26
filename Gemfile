@@ -16,6 +16,6 @@ group :development do
   gem "guard-nanoc"
   gem "guard-livereload"
   gem "guard-coffeescript"
-  #gem "rb-fsevent"
+  gem "rb-fsevent"
   gem "rake"
 end
