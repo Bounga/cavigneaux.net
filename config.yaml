@@ -2,7 +2,7 @@ base_url: http://www.cavigneaux.net
 
 deploy:
   default:
-    dst: "nico@www.bounga.org:/home/nico/www/cavigneaux.net"
+    dst: "synbioz@www.bounga.org:/var/www/cavigneaux.net"
     options: ["-avz", "--delete", "-e ssh"]
 
 # A list of file extensions that nanoc will consider to be textual rather than
