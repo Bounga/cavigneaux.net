@@ -87,9 +87,9 @@ fuckIE = ->
   if Browser.ie and Cookie.read('already_alerted_about_ie') is null
     Cookie.write 'already_alerted_about_ie', true
     if Locale.getCurrent().name is "fr-FR"
-      alert("Je n'ai vraiment aucun plaisir à supporter IE pour mes sites personnels. Je ne le fais donc pas. Pensez à installer une alternatives telle que Firefox, Safari, Chrome ou Opera.")
+      alert("Je n'ai vraiment aucun plaisir à supporter IE pour mes sites personnels. Je ne le fais donc pas. Pensez à installer une alternatives telle que Firefox, Safari, Chrome ou Opera.")
     else
-      alert("I really don't care about suppporting IE for my personnal websites. You should really consider a switch to Firefox, Safari, Chrome or Opera.")
+      alert("I really don't care about supporting IE for my personal websites. You should really consider switching to Firefox, Safari, Chrome or Opera.")
 
 window.addEvent 'domready', ->
     setActiveLanguage()
