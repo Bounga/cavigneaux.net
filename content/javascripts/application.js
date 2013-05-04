@@ -5,7 +5,7 @@
     Implements: [Options, Events],
     options: {
       count: 3,
-      sinceID: 1,
+      include_rts: true,
       link: true
     },
     initialize: function(username, options) {
@@ -19,10 +19,11 @@
     retrieve: function() {
       var _this = this;
       return new Request.JSONP({
-        url: "http://twitter.com/statuses/user_timeline/" + this.username + ".json",
+        url: "http://api.twitter.com/1/statuses/user_timeline.json",
         data: {
+          screen_name: this.username,
           count: this.options.count,
-          since_id: this.options.sinceID
+          include_rts: this.options.include_rts
         },
         onRequest: this.fireEvent('request'),
         onComplete: function(data) {
@@ -133,9 +134,9 @@
     if (Browser.ie && Cookie.read('already_alerted_about_ie') === null) {
       Cookie.write('already_alerted_about_ie', true);
       if (Locale.getCurrent().name === "fr-FR") {
-        return alert("Je n'ai vraiment aucun plaisir à supporter IE pour mes sites personnels. Je ne le fais donc pas. Pensez à installer une alternatives telle que Firefox, Safari, Chrome ou Opera.");
+        return alert("Je n'ai vraiment aucun plaisir à supporter IE pour mes sites personnels. Je ne le fais donc pas. Pensez à installer une alternatives telle que Firefox, Safari, Chrome ou Opera.");
       } else {
-        return alert("I really don't care about suppporting IE for my personnal websites. You should really consider a switch to Firefox, Safari, Chrome or Opera.");
+        return alert("I really don't care about supporting IE for my personal websites. You should really consider switching to Firefox, Safari, Chrome or Opera.");
       }
     }
   };

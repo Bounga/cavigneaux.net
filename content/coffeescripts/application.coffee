@@ -3,7 +3,7 @@ Twitter = new Class
 
   options: {
     count: 3,
-    sinceID: 1,
+    include_rts: true,
     link: true
   }
 
@@ -17,10 +17,11 @@ Twitter = new Class
 
   retrieve: ->
     new Request.JSONP({
-      url: "http://twitter.com/statuses/user_timeline/#{@username}.json"
+      url: "http://api.twitter.com/1/statuses/user_timeline.json"
       data:
+        screen_name: @username
         count: @options.count
-        since_id: @options.sinceID
+        include_rts: @options.include_rts
       onRequest: @fireEvent('request')
       onComplete: (data) =>
         if @options.link
