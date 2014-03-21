@@ -9,13 +9,13 @@ The source is hosted on [BitBucket][5].
 
 ## License
 
-The following directories/files and their contents are under the [Creative Commons BY-NC-SA 3.0][3] (c) 2010 Nicolas Cavigneaux.
+The following directories/files and their contents are under the [Creative Commons BY-NC-SA 3.0][3] (c) 2014 Nicolas Cavigneaux.
 
 - content/
 - layouts/
 - *.haml
 
-All other directories and files are [MIT Licensed][4] (c) 2010 Nicolas Cavigneaux.
+All other directories and files are [MIT Licensed][4] (c) 2014 Nicolas Cavigneaux.
 
 Feel free to use the HTML and CSS as you please. If you do use them, a link back to [my blog][6] would be appreciated, but is not required.
 
