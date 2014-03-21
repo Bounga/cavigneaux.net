@@ -1,55 +1,15 @@
-Twitter = new Class
-  Implements: [Options,Events]
-
-  options: {
-    count: 3,
-    include_rts: true,
-    link: true
-  }
-
-  initialize: (username,options) ->
-    @setOptions(options)
-    @info = {}
-    @username = username
-
-  linkify: (text) ->
-    text.replace(/(https?:\/\/\S+)/gi,'<a href="$1">$1</a>').replace(/(^|\s)@(\w+)/g,'$1<a href="http://twitter.com/$2">@$2</a>').replace(/(^|\s)#(\w+)/g,'$1#<a href="http://search.twitter.com/search?q=%23$2">$2</a>')
-
-  retrieve: ->
-    new Request.JSONP({
-      url: "http://api.twitter.com/1/statuses/user_timeline.json"
-      data:
-        screen_name: @username
-        count: @options.count
-        include_rts: @options.include_rts
-      onRequest: @fireEvent('request')
-      onComplete: (data) =>
-        if @options.link
-          item.text = @linkify(item.text) for item in data
-        @fireEvent("complete", [data, data[0].user])
-    }).send()
-
 setActiveMenu = ->
   items = $$("header nav ul li a")
   items.each (item) ->
     item.getParent("li").addClass("active") if item.pathname is document.location.pathname
 
 showTweets = ->
-  tweets_container = $("twitter")
+  protocol = if /^http:/.test(document.location) then "http" else "https"
+  script_tag = new Element "script",
+    id: "twitter-wjs"
+    src: protocol + "://platform.twitter.com/widgets.js"
 
-  if tweets_container?
-    twitter = new Twitter 'Bounga', {
-      onComplete: (tweets, user) ->
-        for tweet in tweets
-          picture = user.profile_image_url.replace("\\",'')
-          date = Date.parse(tweet.created_at).format("%x")
-          via = tweet.source.replace("\\",'')
-          new Element('div', {html: "<img src=\"#{picture}\" alt=\"#{user.name}\" /> <strong>#{user.name}</strong>#{tweet.text}<span>#{date} via #{via}</span>", 'class': 'item clear'}).inject('twitter')
-    }
-    try
-      twitter.retrieve()
-    catch error
-      console.log "Can't get tweets" if console?
+  $(document.head).getElement('script').adopt script_tag
 
 showPosts = ->
   posts_container = $("blog")
@@ -93,11 +53,11 @@ fuckIE = ->
       alert("I really don't care about supporting IE for my personal websites. You should really consider switching to Firefox, Safari, Chrome or Opera.")
 
 window.addEvent 'domready', ->
-    setActiveLanguage()
-    setActiveMenu()
-    showTweets()
-    showPosts()
-    fuckIE()
+  setActiveLanguage()
+  setActiveMenu()
+  showTweets()
+  showPosts()
+  fuckIE()
 
 window.addEvent "load", ->
   wrapStyledImages()

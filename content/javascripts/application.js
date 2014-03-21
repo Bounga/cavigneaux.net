@@ -1,44 +1,5 @@
 (function() {
-  var Twitter, fuckIE, setActiveLanguage, setActiveMenu, showPosts, showTweets, wrapStyledImages;
-
-  Twitter = new Class({
-    Implements: [Options, Events],
-    options: {
-      count: 3,
-      include_rts: true,
-      link: true
-    },
-    initialize: function(username, options) {
-      this.setOptions(options);
-      this.info = {};
-      return this.username = username;
-    },
-    linkify: function(text) {
-      return text.replace(/(https?:\/\/\S+)/gi, '<a href="$1">$1</a>').replace(/(^|\s)@(\w+)/g, '$1<a href="http://twitter.com/$2">@$2</a>').replace(/(^|\s)#(\w+)/g, '$1#<a href="http://search.twitter.com/search?q=%23$2">$2</a>');
-    },
-    retrieve: function() {
-      var _this = this;
-      return new Request.JSONP({
-        url: "http://api.twitter.com/1/statuses/user_timeline.json",
-        data: {
-          screen_name: this.username,
-          count: this.options.count,
-          include_rts: this.options.include_rts
-        },
-        onRequest: this.fireEvent('request'),
-        onComplete: function(data) {
-          var item, _i, _len;
-          if (_this.options.link) {
-            for (_i = 0, _len = data.length; _i < _len; _i++) {
-              item = data[_i];
-              item.text = _this.linkify(item.text);
-            }
-          }
-          return _this.fireEvent("complete", [data, data[0].user]);
-        }
-      }).send();
-    }
-  });
+  var fuckIE, setActiveLanguage, setActiveMenu, showPosts, showTweets, wrapStyledImages;
 
   setActiveMenu = function() {
     var items;
@@ -51,34 +12,13 @@
   };
 
   showTweets = function() {
-    var tweets_container, twitter;
-    tweets_container = $("twitter");
-    if (tweets_container != null) {
-      twitter = new Twitter('Bounga', {
-        onComplete: function(tweets, user) {
-          var date, picture, tweet, via, _i, _len, _results;
-          _results = [];
-          for (_i = 0, _len = tweets.length; _i < _len; _i++) {
-            tweet = tweets[_i];
-            picture = user.profile_image_url.replace("\\", '');
-            date = Date.parse(tweet.created_at).format("%x");
-            via = tweet.source.replace("\\", '');
-            _results.push(new Element('div', {
-              html: "<img src=\"" + picture + "\" alt=\"" + user.name + "\" /> <strong>" + user.name + "</strong>" + tweet.text + "<span>" + date + " via " + via + "</span>",
-              'class': 'item clear'
-            }).inject('twitter'));
-          }
-          return _results;
-        }
-      });
-      try {
-        return twitter.retrieve();
-      } catch (error) {
-        if (typeof console !== "undefined" && console !== null) {
-          return console.log("Can't get tweets");
-        }
-      }
-    }
+    var protocol, script_tag;
+    protocol = /^http:/.test(document.location) ? "http" : "https";
+    script_tag = new Element("script", {
+      id: "twitter-wjs",
+      src: protocol + "://platform.twitter.com/widgets.js"
+    });
+    return $(document.head).getElement('script').adopt(script_tag);
   };
 
   showPosts = function() {
