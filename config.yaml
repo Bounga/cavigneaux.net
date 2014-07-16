@@ -2,6 +2,7 @@ base_url: http://www.cavigneaux.net
 
 deploy:
   default:
+    kind: rsync
     dst: "synbioz@cavigneaux.net:/var/www/cavigneaux.net"
     options: ["-avz", "--delete", "-e ssh"]
 
