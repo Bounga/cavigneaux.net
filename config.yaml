@@ -3,8 +3,8 @@ base_url: http://www.cavigneaux.net
 deploy:
   default:
     kind: rsync
-    dst: "synbioz@cavigneaux.net:/var/www/cavigneaux.net"
-    options: ["-avz", "--delete", "-e ssh"]
+    dst: "nico@cavigneaux.net:/var/www/cavigneaux.net"
+    options: ["-az", "--delete", "-e ssh"]
 
 # A list of file extensions that nanoc will consider to be textual rather than
 # binary. If an item with an extension not in this list is found,  the file
