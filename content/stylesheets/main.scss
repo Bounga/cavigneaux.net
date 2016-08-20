@@ -1,32 +1,28 @@
 $bgcolor: #181613;
 
-@import url(http://fonts.googleapis.com/css?family=Forum);
-@import url(http://fonts.googleapis.com/css?family=IM+Fell+Great+Primer+SC);
-
 * {
   margin: 0;
   padding: 0;
 }
 
 body {
-  font-family: 'Forum', cursive;
   background: $bgcolor url(/images/body.png) repeat-x;
-  
+
   .wrapper {
     margin: 0 auto;
     position: relative;
     width: 960px;
     color: #ffffff;
-    
+
     a, a:visited {
       color: #fff;
       text-decoration: none;
-      
+
       &:hover {
         text-decoration: underline;
       }
     }
-    
+
     h1 {
       font-size: 30px;
       font-weight: 700;
@@ -35,21 +31,19 @@ body {
       letter-spacing: 0.5em;
       margin-top: 0.5em;
     }
-    
+
     header {
       .flag {
         position: absolute;
         right: 0;
       }
-      
+
       h1 {
-        font-family: "IM Fell Great Primer SC", cursive;
-        
         a:hover {
           text-decoration: none;
         }
       }
-      
+
       nav ul {
         list-style-type: none;
         margin: auto;
@@ -96,7 +90,7 @@ body {
         }
       }
     }
-  
+
     div#main {
       color: darken(#ffffff, 10);
       display: inline;
@@ -106,7 +100,7 @@ body {
       background-color: lighten($bgcolor, 10);
       box-shadow: 5px 5px 5px $bgcolor inset;
       border-radius: 1em;
-      
+
       a, a:visited {
         text-decoration: underline;
         border-radius: 4px;
@@ -115,35 +109,35 @@ body {
         -o-transition-duration: 0.25s;
         transition-duration: 0.25s;
       }
-      
+
       a:not(.no-effects):hover {
         padding: 0.5em;
       	background: #BC211E;
       	color: #fff;
       }
-      
+
       span.image-wrap {
         box-shadow: inset 0 0 2px rgba(0, 0, 0, .8), inset 0 2px 0 rgba(255, 255, 255, .5), inset 0 -7px 0 rgba(0, 0, 0, .6), inset 0 -9px 0 rgba(255, 255, 255, .3);
         border-radius: 20px;
       }
-      
+
       p {
         margin-bottom: 1em;
         line-height: 1.2em;
       }
-      
+
       ul {
         list-style: disc;
         padding: 0 0 1em 2em;
-        
+
         li {
           line-height: 1.2em;
         }
-        
+
         &.contacts {
           width: 550px;
           margin: auto;
-          
+
           list-style: none;
           li {
             height: 32px;
@@ -152,7 +146,7 @@ body {
             width: 220px;
             margin: 0 0 1em 1em;
             padding-left: 35px;
-            
+
             &.gtalk {background: transparent url(/images/contacts/gtalk.png) no-repeat}
             &.mail {background: transparent url(/images/contacts/mail.png) no-repeat}
             &.phone {background: transparent url(/images/contacts/phone.png) no-repeat}
@@ -163,11 +157,11 @@ body {
           }
         }
       }
-      
+
       strong {
         font-weight: bold;
       }
-      
+
       h1 {
         text-shadow: 2px 2px 2px #000;
         margin-bottom: 1em;
@@ -177,7 +171,7 @@ body {
         a, a:hover, a:visited {
           text-decoration: none;
         }
-        
+
         &.home {background: transparent url(/images/icons/free_for_job.png) no-repeat 5% 0}
         &.news {background: transparent url(/images/icons/news.png) no-repeat 5% 0}
         &.projects {background: transparent url(/images/icons/projects.png) no-repeat 5% 0}
@@ -188,7 +182,7 @@ body {
           }
         }
       }
-      
+
       h2 {
         padding: 0.3em 0;
         font-size: 18px;
@@ -199,49 +193,49 @@ body {
         border-radius: 3px;
         box-shadow: inset 0 1px 3px #9B1F22,inset 0 12px 25px #AE1E23,1px 1px 0px black;
       }
-      
+
       div {
         &#twitter { float:right; }
         &#blog { float:left; }
         &#twitter, &#blog {
           width: 45%;
-          
+
         	.item {
         	  height: 120px;
         	  padding:5px 10px;
         	  margin:10px 0;
         	  background:#eee;
         	  border-radius: 0.5em;
-        	  
-        	  
+
+
         	  position: relative;
         	  color: #000;
-        	  
+
         	  img {
         	    margin-right:1em;
         	    float: left;
         	    vertical-align: top;
         	  }
-        	  
+
         	  strong {
         	    color: #181613;
         	    margin-bottom: 0.5em;
         	    display:block;
         	  }
-        	  
+
         	  a {
         	    color: #830900;
-        	    
+
         	    &:hover {
         	      color: #fff;
         	    }
         	  }
-        	  
+
         	  p {
         	    margin-top: 1em;
         	    text-align: right;
         	  }
-        	  
+
         	  span {
         	    font-size: 0.8em;
         	    position: absolute;
@@ -253,21 +247,21 @@ body {
         }
       }
     }
-    
+
     nav#sidebar {
       display: inline;
       float: right;
       width: 180px;
       padding-top: 8em;
       background: transparent url(/images/photo.png) no-repeat left top;
-      
+
       h2 {
         margin-bottom: 0.5em;
       }
-        
+
       ul {
         margin-bottom: 0.5em;
-        
+
         li {
           color: #fff;
           height: 32px;
@@ -294,14 +288,14 @@ body {
   footer {
     clear: both;
     margin-top: 1em;
-    
+
     ul li {
       height: 32px;
       line-height: 32px;
       padding-left: 35px;
       margin-right: 5px;
       float:left;
-        
+
       &.jabber {background: transparent url(/images/contacts/jabber.png) no-repeat}
       &.mail {background: transparent url(/images/contacts/mail.png) no-repeat}
       &.phone {background: transparent url(/images/contacts/phone.png) no-repeat}
@@ -310,7 +304,7 @@ body {
         line-height: 1em;
       }
     }
-    
+
     p {
       font-size: 12px;
       padding-top: 2em;
@@ -318,19 +312,19 @@ body {
       clear: both;
     }
   }
-  
+
   .center {
     text-align:center;
   }
-  
+
   .left {
     float: left;
   }
-  
+
   .right {
     float: right;
   }
-  
+
   .clear {
     clear: both;
   }
