@@ -1,0 +1,185 @@
+#
+# Be aware that even a small syntax error here can lead to failures in output. 
+#
+
+sidebar:
+    about: False # set to False or comment line if you want to remove the "how to use?" in the sidebar
+    education: True # set to False if you want education in main section instead of in sidebar
+
+    # Profile information
+    name: Nicolas Cavigneaux
+    tagline: Software Engineer
+    avatar: profile.jpg  #place a 100x100 picture inside /assets/images/ folder and provide the name of the file below
+
+    # Sidebar links
+    email: nicolas@cavigneaux.net
+    phone: +33 (0)6-75-26-63-75
+    website: www.bounga.org
+    linkedin: cavigneaux
+    github: Bounga
+    bitbucket: Bounga
+    twitter: '@Bounga'
+    stack-overflow: '7103932/bounga'
+
+    languages:
+      - idiom: French
+        level: Native
+
+      - idiom: English
+        level: Professional
+
+
+    interests:
+      - item: Playing Guitar
+        link: https://soundcloud.com/bounga-1
+
+      - item: Riding Bikes
+        link: https://www.flickr.com/photos/bounga/albums/72157617471081158
+
+      - item: Programming my Raspberry Pi
+        link: https://www.raspberrypi.org
+
+career-profile:
+    title: Career Profile
+    summary: |
+      My training and my experience allow me to offer my services for:
+
+        - online stores
+        - web app with rich functionalities
+        - public or private API creation and consuming
+        - native iOS / Android apps using RubyMotion
+        - mobile version of your website
+        - optimizing your existing app performances
+        - Ruby (and its eco-system) training
+        - security audit
+        
+experiences:
+    - role: Senior Software Engineer
+      time: May 2010 - Present
+      company: Synbioz, Lille
+      details: |
+        - leading teams
+        - code reviews
+        - training (Ruby / Rails / Elixir / Vue.js / Ember.js)
+        - help to find the best technical solutions
+
+    - role: Senior Software Engineer
+      time: Oct 2007 - May 2010
+      company: Audace Multimedia, Lens
+      details: |
+        - web app development using Ruby on Rails
+        - unix systems administration
+        - enhancement of information system
+        - proactive in improving technical skills
+
+    - role: Software Engineer
+      time: 2006 - 2007
+      company: Webpulser, Lille
+      details: |
+        - wrote CRM from scratch
+        - built shopping sites
+
+    - role: Software Developer
+      time: Mar 2006 - Jun 2006
+      company: Nuxos Group, Paris
+      details: |
+        Internship:
+
+        - secured E-Commerce platform development 
+        - community website development
+
+    - role: Software Developer
+      time: Jan 2005 - Feb 2005
+      company: Audace Multimedia, Lens
+      details: |
+        Internship:
+
+        - E-Learning platform (Moodle) deployement, adaptation and scaling 
+        - E-Commerce Website development (cart, secured payment, third-party software updating using XML)
+
+    - role: Software Developer / Sys Admin
+      time: May 2004 - Jun 2004
+      company: Audace Multimedia, Lens
+      details: |
+        Internship:
+
+        - HTML/PHP/MySQL/Flash development for Arcelor group 
+        - Mail and FTP servers administration on Unix systems
+
+projects:
+    title: Projects
+    intro: >
+      In my spare time I like to work on side projects and open source libraries by submitting pull requests.
+
+    assignments:
+      - title: Ruby on Rails
+        link: "https://contributors.rubyonrails.org/contributors/nicolas-cavigneaux/commits"
+        tagline: "A web-application framework that includes everything needed to create database-backed web applications according to the Model-View-Controller (MVC) pattern using Ruby."
+
+      - title: Hanami
+        link: "http://contributors.hanamirb.org/contributors/Bounga"
+        tagline: "Modern, fast and lightweight web framework for Ruby."
+
+      - title: dry-rb
+        link: "https://dry-rb.org"
+        tagline: "A collection of next-generation Ruby libraries which helps to write clear, flexible, and more maintainable Ruby code."
+
+      - title: Homebrew
+        link: "https://brew.sh"
+        tagline: "The missing package manager for macOS."
+
+      - title: Oh My ZSH
+        link: "https://ohmyz.sh"
+        tagline: "Oh My Zsh is a delightful, open source, community-driven framework for managing your Zsh configuration. It comes bundled with a ton of helpful functions, helpers, plugins, themes, and a few things that make you shout..."
+
+      - title: Monky
+        link: "https://github.com/ananthakumaran/monky"
+        tagline: "Provides an interactive interface for Hg inside Emacs"
+
+# publications:
+#     title: Publications
+#     intro: |
+#       You can list your publications in this section. Lorem ipsum dolor sit
+#       amet, consectetur adipiscing elit. Vestibulum et ligula in nunc
+#       bibendum fringilla a eu lectus.
+
+#     papers:
+#       - title: The Art of Computer Programming
+#         authors: Donald E. Knuth
+#         conference: Addison-Wesley, 1968
+
+#       - title: "Genetic Programming III: Darwinian Invention &amp; Problem Solving"
+#         authors: Koza, J.R., Andre, D., Bennett, F.H., Keane, M.A.
+#         conference: "Morgan Kaufmann Publishers Inc., San Francisco, CA, USA, 1st edn. (1999)"
+
+#       - title: A syntax directed compiler for Algol 60
+#         authors: Edgar T. Irons
+#         conference: "Comm. ACM 4 (1961), 51–55"
+
+skills:
+    title: Skills &amp; Proficiency
+
+    toolset:
+      - name: Ruby
+        level: 98%
+
+      - name: Ruby on Rails
+        level: 98%
+
+      - name: Hanami
+        level: 90%
+
+      - name: Vue.js
+        level: 90%
+
+      - name: Ember.js
+        level: 80%
+
+      - name: Elixir
+        level: 70%
+
+      - name: Phoenix
+        level: 80%
+
+footer: >
+    Designed with <i class="fas fa-heart"></i> by <a href="http://themes.3rdwavemedia.com" target="_blank" rel="nofollow">Xiaoying Riley</a>

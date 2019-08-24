@@ -1,8 +1,8 @@
 syntax: glob
 
 .DS_Store
-public/*
-tmp/*
-.sass-cache/*
+_site/*
 vendor/bundle
-.bundle/
+.bundle/config
+.sass-cache
+.jekyll-metadata
