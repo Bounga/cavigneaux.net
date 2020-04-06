@@ -168,16 +168,16 @@ skills:
       - name: Hanami
         level: 90%
 
+      - name: Elixir
+        level: 80%
+
+      - name: Phoenix
+        level: 90%
+        
       - name: Vue.js
         level: 90%
 
       - name: Ember.js
-        level: 80%
-
-      - name: Elixir
-        level: 70%
-
-      - name: Phoenix
         level: 80%
 
 footer: >
